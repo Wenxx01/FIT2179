@@ -1,0 +1,129 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CUSTOM: 2-layer heatmap. Layer 1: colour cells by pct_of_state. Layer 2: text annotations on every cell. Derived field pct_of_state computed from both occupation count and state totals.",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "data": {
+    "url": "../chart_data/occ_state_heatmap.json"
+  },
+  "width": "container",
+  "height": 270,
+  "layer": [
+    {
+      "mark": "rect",
+      "encoding": {
+        "y": {
+          "field": "occupation",
+          "type": "nominal",
+          "sort": {
+            "field": "pct_of_state",
+            "order": "descending",
+            "op": "mean"
+          },
+          "axis": {
+            "title": null,
+            "labelFontSize": 11
+          }
+        },
+        "x": {
+          "field": "state",
+          "type": "nominal",
+          "axis": {
+            "title": null,
+            "labelFontSize": 11,
+            "labelFontWeight": "600"
+          }
+        },
+        "color": {
+          "field": "pct_of_state",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "oranges"
+          },
+          "legend": {
+            "title": "% of state total",
+            "orient": "right",
+            "gradientLength": 110
+          }
+        },
+        "tooltip": [
+          {
+            "field": "occupation",
+            "title": "Occupation"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "pct_of_state",
+            "title": "% of State"
+          },
+          {
+            "field": "job_seekers",
+            "title": "Job Seekers",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 9,
+        "fontWeight": "600"
+      },
+      "encoding": {
+        "y": {
+          "field": "occupation",
+          "type": "nominal",
+          "sort": {
+            "field": "pct_of_state",
+            "order": "descending",
+            "op": "mean"
+          }
+        },
+        "x": {
+          "field": "state",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "pct_of_state",
+          "format": ".1f"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.pct_of_state > 22",
+            "value": "white"
+          },
+          "value": "#3A2C1C"
+        }
+      }
+    }
+  ]
+}

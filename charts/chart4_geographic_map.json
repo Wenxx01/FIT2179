@@ -1,0 +1,125 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "REQUIRED MAP: Bubble map of Australia. Each circle = one SA4 region at its geographic centroid. Size = total job seekers. Colour = job seekers per 1,000 people (darker red = more pressure).",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "#D6CCBA"
+    }
+  },
+  "data": {
+    "url": "../chart_data/sa4_map.json"
+  },
+  "width": "container",
+  "height": 520,
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
+    ],
+    "scale": 750
+  },
+  "mark": {
+    "type": "circle",
+    "opacity": 0.78,
+    "stroke": "white",
+    "strokeWidth": 0.8
+  },
+  "encoding": {
+    "longitude": {
+      "field": "lon",
+      "type": "quantitative"
+    },
+    "latitude": {
+      "field": "lat",
+      "type": "quantitative"
+    },
+    "size": {
+      "field": "job_seekers",
+      "type": "quantitative",
+      "scale": {
+        "range": [
+          25,
+          2400
+        ]
+      },
+      "legend": {
+        "title": "Total Job Seekers",
+        "orient": "bottom-right",
+        "format": ",.0s",
+        "values": [
+          50000,
+          200000,
+          500000,
+          1000000
+        ]
+      }
+    },
+    "color": {
+      "field": "js_per_1000",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds",
+        "domain": [
+          410,
+          665
+        ]
+      },
+      "legend": {
+        "title": "JS per 1,000 people",
+        "orient": "bottom-left",
+        "gradientLength": 120
+      }
+    },
+    "tooltip": [
+      {
+        "field": "sa4_name",
+        "title": "Region"
+      },
+      {
+        "field": "state",
+        "title": "State"
+      },
+      {
+        "field": "pop_2025",
+        "title": "Population",
+        "format": ",.0f"
+      },
+      {
+        "field": "job_seekers",
+        "title": "Job Seekers",
+        "format": ",.0f"
+      },
+      {
+        "field": "js_per_1000",
+        "title": "JS per 1,000"
+      },
+      {
+        "field": "js_deviation",
+        "title": "Deviation from avg"
+      }
+    ]
+  }
+}
