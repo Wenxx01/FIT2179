@@ -1,0 +1,197 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CUSTOM: 5-layer area chart. Layers: COVID shaded rect, COVID text label, area+line, vertical rule annotation, text annotation. Requires combining inline and URL data across layers.",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "width": "container",
+  "height": 290,
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "s": "2020-03-01",
+            "e": "2021-12-31"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rect",
+        "color": "#FBF0D8",
+        "opacity": 0.85
+      },
+      "encoding": {
+        "x": {
+          "field": "s",
+          "type": "temporal"
+        },
+        "x2": {
+          "field": "e",
+          "type": "temporal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "d": "2020-09-01",
+            "v": 14900000,
+            "t": "COVID-19 period"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "fontSize": 9.5,
+        "color": "#D08A0A",
+        "fontWeight": "600",
+        "fontStyle": "italic",
+        "dy": -8
+      },
+      "encoding": {
+        "x": {
+          "field": "d",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "v",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "../chart_data/monthly_national.json"
+      },
+      "mark": {
+        "type": "area",
+        "color": "#C0381A",
+        "opacity": 0.12,
+        "line": {
+          "color": "#C0381A",
+          "strokeWidth": 2
+        }
+      },
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "axis": {
+            "title": null,
+            "format": "%Y",
+            "tickCount": 12
+          }
+        },
+        "y": {
+          "field": "job_seekers",
+          "type": "quantitative",
+          "axis": {
+            "title": "Registrations",
+            "format": ",.0s"
+          },
+          "scale": {
+            "zero": false
+          }
+        },
+        "tooltip": [
+          {
+            "field": "date",
+            "title": "Month",
+            "type": "temporal",
+            "format": "%B %Y"
+          },
+          {
+            "field": "job_seekers",
+            "title": "Registrations",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "d": "2019-09-01"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#7A6A52",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "d",
+          "type": "temporal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "d": "2019-09-01",
+            "v": 14950000,
+            "t": "Pre-COVID plateau"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -6,
+        "fontSize": 9,
+        "color": "#7A6A52"
+      },
+      "encoding": {
+        "x": {
+          "field": "d",
+          "type": "temporal"
+        },
+        "y": {
+          "field": "v",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CUSTOM: Stacked bar combining 3 ABS migration components per state. Uses Vega-Lite fold transform to derive a new data structure from three columns.",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "data": {
+    "url": "../chart_data/state_population.json"
+  },
+  "width": "container",
+  "height": 250,
+  "transform": [
+    {
+      "fold": [
+        "natural_increase",
+        "net_internal_migration",
+        "net_overseas_migration"
+      ],
+      "as": [
+        "component",
+        "value"
+      ]
+    },
+    {
+      "calculate": "datum.component==='natural_increase'?'Natural Increase':datum.component==='net_internal_migration'?'Net Internal Migration':'Net Overseas Migration'",
+      "as": "label"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 2
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": {
+        "field": "pop_2025",
+        "order": "descending"
+      },
+      "axis": {
+        "title": null
+      }
+    },
+    "x": {
+      "field": "value",
+      "type": "quantitative",
+      "axis": {
+        "title": "People per year",
+        "format": ",.0f"
+      },
+      "stack": "zero"
+    },
+    "color": {
+      "field": "label",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "Natural Increase",
+          "Net Internal Migration",
+          "Net Overseas Migration"
+        ],
+        "range": [
+          "#1A6850",
+          "#C0381A",
+          "#D08A0A"
+        ]
+      },
+      "legend": {
+        "title": "Component",
+        "orient": "bottom",
+        "columns": 3
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "title": "State"
+      },
+      {
+        "field": "label",
+        "title": "Component"
+      },
+      {
+        "field": "value",
+        "title": "People",
+        "format": ",.0f"
+      }
+    ]
+  }
+}

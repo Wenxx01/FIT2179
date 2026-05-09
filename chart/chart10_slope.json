@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CUSTOM: Slope chart connecting 2019 and 2025 job seeker totals per state with one line per state. Non-standard idiom showing change direction and magnitude simultaneously.",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "data": {
+    "url": "../chart_data/slope_2019_2025.json"
+  },
+  "width": "container",
+  "height": 300,
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.2,
+        "opacity": 0.9
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "title": null,
+            "labelFontSize": 14,
+            "labelFontWeight": "600"
+          }
+        },
+        "y": {
+          "field": "job_seekers",
+          "type": "quantitative",
+          "axis": {
+            "title": "Total Annual Job Seekers",
+            "format": ",.0s"
+          }
+        },
+        "detail": {
+          "field": "state"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "WA",
+              "SA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "range": [
+              "#C0381A",
+              "#1A6850",
+              "#D08A0A",
+              "#1E4E90",
+              "#7A2E88",
+              "#188858",
+              "#C06810",
+              "#882E18"
+            ]
+          },
+          "legend": {
+            "title": "State",
+            "orient": "right"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 90
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "job_seekers",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "WA",
+              "SA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "range": [
+              "#C0381A",
+              "#1A6850",
+              "#D08A0A",
+              "#1E4E90",
+              "#7A2E88",
+              "#188858",
+              "#C06810",
+              "#882E18"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "job_seekers",
+            "title": "Job Seekers",
+            "format": ",.0f"
+          },
+          {
+            "field": "change_pct",
+            "title": "% Change 2019-2025"
+          }
+        ]
+      }
+    }
+  ]
+}

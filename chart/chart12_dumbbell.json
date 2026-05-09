@@ -1,0 +1,192 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "CUSTOM: Dumbbell/connected dot plot. Each row = SA4 region. Grey dot = 2019 JS/1000, red dot = 2025 JS/1000, line = change. Sorted by 2025 value. Every region worsened. Derived ratio from both datasets.",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "data": {
+    "url": "../chart_data/dumbbell.json"
+  },
+  "width": "container",
+  "height": 1150,
+  "transform": [
+    {
+      "fold": [
+        "js_per1000_2019",
+        "js_per1000_2025"
+      ],
+      "as": [
+        "yr",
+        "val"
+      ]
+    },
+    {
+      "calculate": "datum.yr==='js_per1000_2019'?'2019':'2025'",
+      "as": "year"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 1.8,
+        "opacity": 0.45
+      },
+      "encoding": {
+        "y": {
+          "field": "sa4_name",
+          "type": "nominal",
+          "sort": {
+            "field": "js_per1000_2025",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelFontSize": 9.5,
+            "labelLimit": 190
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative",
+          "axis": {
+            "title": "Avg Monthly Job Seekers per 1,000 People"
+          }
+        },
+        "detail": {
+          "field": "sa4_name"
+        },
+        "color": {
+          "value": "#C0381A"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 42,
+        "opacity": 0.6
+      },
+      "transform": [
+        {
+          "filter": "datum.year === '2019'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "sa4_name",
+          "type": "nominal",
+          "sort": {
+            "field": "js_per1000_2025",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#D6CCBA"
+        },
+        "tooltip": [
+          {
+            "field": "sa4_name",
+            "title": "Region"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "js_per1000_2019",
+            "title": "JS/1,000 (2019)"
+          },
+          {
+            "field": "js_per1000_2025",
+            "title": "JS/1,000 (2025)"
+          },
+          {
+            "field": "change",
+            "title": "Change"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 55
+      },
+      "transform": [
+        {
+          "filter": "datum.year === '2025'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "sa4_name",
+          "type": "nominal",
+          "sort": {
+            "field": "js_per1000_2025",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#C0381A"
+        },
+        "tooltip": [
+          {
+            "field": "sa4_name",
+            "title": "Region"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "js_per1000_2019",
+            "title": "JS/1,000 (2019)"
+          },
+          {
+            "field": "js_per1000_2025",
+            "title": "JS/1,000 (2025)"
+          },
+          {
+            "field": "change",
+            "title": "Change"
+          }
+        ]
+      }
+    }
+  ]
+}
