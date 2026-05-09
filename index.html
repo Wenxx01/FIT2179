@@ -1,1 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Australia's Jobs Divide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+<style>
+/* ── Tokens ─────────────────────────────────────────────── */
+:root{
+  --bg:#F4F0E6; --paper:#FDFAF2; --ink:#17100A;
+  --ink2:#3A2C1C; --ink3:#7A6A52; --rule:#D6CCBA;
+  --red:#C0381A; --amber:#D08A0A; --teal:#1A6850; --teal-lt:#D0EDE5;
+}
+/* ── Base ───────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"DM Sans",sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+/* ── Layout ─────────────────────────────────────────────── */
+.wrap{max-width:1080px;margin:0 auto;padding:0 36px;width:100%}
+.section{padding:60px 0 48px;border-top:1px solid var(--rule)}
+/* ── Typography ─────────────────────────────────────────── */
+h1{font-family:"DM Serif Display",serif;font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.06;letter-spacing:-.03em}
+h1 em{font-style:italic;color:var(--red)}
+h2{font-family:"DM Serif Display",serif;font-size:clamp(1.4rem,2.8vw,2rem);line-height:1.2;margin-bottom:10px}
+p{color:var(--ink2);max-width:660px;margin-bottom:14px;line-height:1.75}
+.eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px}
+.stag{font-size:.63rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3);display:block;margin-bottom:6px}
+/* ── Hero ───────────────────────────────────────────────── */
+.hero{padding:72px 0 60px;border-bottom:2px solid var(--ink);background:linear-gradient(140deg,#F4F0E6 55%,rgba(192,56,26,.06))}
+.hero p{font-size:1.05rem;margin-top:20px;line-height:1.8;max-width:640px}
+/* ── Stat cards ─────────────────────────────────────────── */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.stat{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:20px 22px;position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;top:0;left:0;width:3px;height:100%}
+.stat:nth-child(1)::after{background:var(--red)}
+.stat:nth-child(2)::after{background:var(--amber)}
+.stat:nth-child(3)::after{background:var(--teal)}
+.slabel{font-size:.63rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-bottom:5px}
+.sval{font-family:"DM Serif Display",serif;font-size:2.4rem;line-height:1;color:var(--ink);margin-bottom:4px}
+.sdesc{font-size:.77rem;color:var(--ink3);line-height:1.45}
+/* ── Chart wrapper ──────────────────────────────────────── */
+.cw{background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:24px 20px 16px;margin-bottom:22px}
+.clabel{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:2px}
+.ctitle{font-family:"DM Serif Display",serif;font-size:1.12rem;color:var(--ink);margin-bottom:12px}
+.cnote{font-size:.73rem;color:var(--ink3);margin-top:10px;line-height:1.55;border-top:1px solid var(--rule);padding-top:8px}
+/* ── Grids ──────────────────────────────────────────────── */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:22px}
+/* ── Callout ────────────────────────────────────────────── */
+.callout{background:var(--teal-lt);border-left:3px solid var(--teal);border-radius:0 3px 3px 0;padding:13px 17px;margin:2px 0 22px}
+.callout p{font-size:.87rem;color:var(--teal);margin:0;font-weight:500;max-width:none}
+/* ── Footer ─────────────────────────────────────────────── */
+footer{border-top:2px solid var(--ink);padding:38px 0 50px;margin-top:20px}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.fl{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);margin-bottom:7px}
+footer p,footer li{font-size:.78rem;color:var(--ink3);line-height:1.65;max-width:none;margin-bottom:0}
+footer ul{padding-left:15px}
+/* ── Vega reset ─────────────────────────────────────────── */
+.vega-embed{width:100%!important}
+.vega-embed summary{display:none!important}
+/* ── Responsive ─────────────────────────────────────────── */
+@media(max-width:780px){
+  .stats,.g2,.fg{grid-template-columns:1fr}
+  .wrap{padding:0 18px}
+  h1{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
 
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+<div class="wrap">
+  <span class="eyebrow">Australia &middot; 2025 &middot; Labour Market Analysis</span>
+  <h1>Australia's<br><em>Jobs Divide</em></h1>
+  <p>Where do Australians live &mdash; and where is the pressure to find work most intense? This visualisation maps the gap between population and job-seeker concentration across all 88 regions of Australia, revealing a nation of sharp contrasts between growing cities, ageing coastal towns, and remote communities.</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="slabel">Total Population (2025)</div>
+      <div class="sval">27.6M</div>
+      <div class="sdesc">Australians, growing at 1.7% per year</div>
+    </div>
+    <div class="stat">
+      <div class="slabel">Job Seeker Registrations</div>
+      <div class="sval">14.6M</div>
+      <div class="sdesc">Total registrations nationally, March 2026, up 22% since 2019</div>
+    </div>
+    <div class="stat">
+      <div class="slabel">National Average</div>
+      <div class="sval">530</div>
+      <div class="sdesc">Job seekers per 1,000 people &mdash; but regions range from 411 to 661</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ════════ SECTION 1 — WHERE PEOPLE LIVE ════════ -->
+<div class="section"><div class="wrap">
+  <span class="stag">Part One</span>
+  <h2>Where Australians Live</h2>
+  <p>Australia's 27.6 million people cluster almost entirely along the eastern and south-western coastlines. NSW and Victoria alone account for over 57% of the population. Understanding this geography is essential context for the jobs divide.</p>
+
+  <div class="cw">
+    <div class="clabel">Chart 1 &mdash; Population</div>
+    <div class="ctitle">Population by State, June 2025</div>
+    <div id="c1"></div>
+    <div class="cnote">Source: ABS Regional Population Growth 2024&ndash;25. NSW leads with 8.6 million people. The NT has fewer than 265,000 residents &mdash; under 1% of the national total.</div>
+  </div>
+
+  <div class="g2">
+    <div class="cw">
+      <div class="clabel">Chart 2 &mdash; Growth Rate</div>
+      <div class="ctitle">Population Growth 2024&ndash;25 (%)</div>
+      <div id="c2"></div>
+      <div class="cnote">WA grew fastest at 2.2%, driven by overseas migration. Tasmania barely grew at 0.3%.</div>
+    </div>
+    <div class="cw">
+      <div class="clabel">Chart 3 &mdash; Custom: Migration Components</div>
+      <div class="ctitle">What Is Driving Population Change?</div>
+      <div id="c3"></div>
+      <div class="cnote"><strong>Custom-built:</strong> Three ABS columns (natural increase, internal migration, overseas migration) combined using a fold transform into one diverging stacked bar per state. QLD and WA are the only states gaining residents from within Australia.</div>
+    </div>
+  </div>
+
+  <div class="callout"><p>&#128161; <strong>Key insight:</strong> NSW loses 24,000 residents per year to interstate moves, but offsets this with 90,000 overseas arrivals. Queensland gains people from both within Australia and overseas &mdash; the fastest-growing big state.</p></div>
+</div></div>
+
+<!-- ════════ SECTION 2 — JOB SEEKERS ════════ -->
+<div class="section"><div class="wrap">
+  <span class="stag">Part Two</span>
+  <h2>The Search for Work</h2>
+  <p>Job seeker registrations have climbed from 11.9 million in 2015 to 14.6 million in 2026. Growth paused during COVID-19 but then accelerated. The pressure is not felt equally across occupations or regions.</p>
+
+  <div class="cw">
+    <div class="clabel">Chart 4 &mdash; Geographic Map (Required)</div>
+    <div class="ctitle">Job Seekers per 1,000 People by SA4 Region &mdash; Australia</div>
+    <div id="c4"></div>
+    <div class="cnote"><strong>Geographic map:</strong> Each circle is one SA4 region at its geographic centroid. Circle <em>size</em> = total job seekers; circle <em>colour</em> = job seekers per 1,000 residents (darker red = higher pressure per person). Hover for region details. Data: ABS population 2025 + job seeker registrations March 2026.</div>
+  </div>
+
+  <div class="cw">
+    <div class="clabel">Chart 5 &mdash; Custom: Annotated Area Chart</div>
+    <div class="ctitle">National Job Seeker Registrations, 2015&ndash;2026</div>
+    <div id="c5"></div>
+    <div class="cnote"><strong>Custom-built:</strong> Five separate Vega-Lite layers combined: shaded COVID band, COVID text label, area + line, vertical rule annotation, and text annotation. Registrations grew 22.5% over this period.</div>
+  </div>
+
+  <div class="g2">
+    <div class="cw">
+      <div class="clabel">Chart 6 &mdash; Custom: Small Multiples</div>
+      <div class="ctitle">Job Seeker Trend by State, 2015&ndash;2025</div>
+      <div id="c6"></div>
+      <div class="cnote"><strong>Custom-built:</strong> 8 panels sharing the same Y-axis scale so states are directly comparable. QLD shows the steepest growth.</div>
+    </div>
+    <div class="cw">
+      <div class="clabel">Chart 7 &mdash; Top Occupations</div>
+      <div class="ctitle">Top 15 Occupations by Job Seeker Count</div>
+      <div id="c7"></div>
+      <div class="cnote">Sales Assistants (573K) lead. Registered Nurses (372K) and Aged &amp; Disabled Carers (365K) rank 2nd and 3rd, reflecting Australia's ageing population.</div>
+    </div>
+  </div>
+
+  <div class="cw">
+    <div class="clabel">Chart 8 &mdash; Custom: Annotated Heatmap</div>
+    <div class="ctitle">Share of Job Seekers by Occupation Group and State (%)</div>
+    <div id="c8"></div>
+    <div class="cnote"><strong>Custom-built:</strong> Colour encodes what percentage of each state's job seekers fall in each occupation group, with numeric labels on every cell. The ACT has an unusually high share of Professionals (32.9%) &mdash; reflecting Canberra's public-service economy. WA leads in Technicians &amp; Trades (16.3%) due to its mining sector. Derived from ANZSCO codes aggregated to 8 major groups, then expressed as a percentage of each state's total.</div>
+  </div>
+</div></div>
+
+<!-- ════════ SECTION 3 — THE DIVIDE ════════ -->
+<div class="section"><div class="wrap">
+  <span class="stag">Part Three</span>
+  <h2>The Divide: Mismatch Between People and Pressure</h2>
+  <p>Combining both datasets reveals a clear and deepening divide. Some regions carry far more job-seeking pressure per resident than others &mdash; and this has worsened in every single region since 2019. The national average is 530 job seekers per 1,000 people, but individual regions range from 411 to 661.</p>
+
+  <div class="cw">
+    <div class="clabel">Chart 9 &mdash; Custom: Diverging Dot Plot</div>
+    <div class="ctitle">Job Seekers per 1,000 People &mdash; Deviation from National Average (530)</div>
+    <div id="c9"></div>
+    <div class="cnote"><strong>Custom-built:</strong> Each dot is one SA4 region plotted by how far above or below the national average its job seeker rate sits. Red = above average; teal = below. The deviation is a derived column calculated by subtracting 530 from each region's JS/1,000 figure &mdash; combining both data sources. Hover for region names.</div>
+  </div>
+
+  <div class="cw">
+    <div class="clabel">Chart 10 &mdash; Custom: Slope Chart</div>
+    <div class="ctitle">Job Seekers by State: 2019 versus 2025</div>
+    <div id="c10"></div>
+    <div class="cnote"><strong>Custom-built:</strong> A slope chart connects two time points with one line per state &mdash; a non-standard idiom making change direction and magnitude immediately visible. Every state increased. QLD grew 18.6%; WA grew 20.6%.</div>
+  </div>
+
+  <div class="cw">
+    <div class="clabel">Chart 11 &mdash; Custom: Quadrant Scatter</div>
+    <div class="ctitle">Population vs Job Seekers per SA4 Region &mdash; Four Quadrants</div>
+    <div id="c11"></div>
+    <div class="cnote"><strong>Custom-built:</strong> Each point is an SA4 region. Dashed lines at median values create four annotated quadrants. Top-left (small population, high job seekers) = regions under the most strain per resident. Coloured by state; hover for details. Derived from both data sources combined.</div>
+  </div>
+
+  <div class="cw">
+    <div class="clabel">Chart 12 &mdash; Custom: Dumbbell Chart</div>
+    <div class="ctitle">Change in Job Seekers per 1,000 People: 2019 &rarr; 2025, All 88 SA4 Regions</div>
+    <div id="c12"></div>
+    <div class="cnote"><strong>Custom-built:</strong> Each row = one SA4 region. Grey dot = 2019; red dot = 2025; connecting line shows change. Sorted by 2025 value. <strong>Not a single region improved</strong> &mdash; every SA4 in Australia recorded a higher job seeker rate in 2025 than 2019. Requires derived ratios from both data sources combined.</div>
+  </div>
+
+  <div class="callout"><p>&#128161; <strong>Conclusion:</strong> Australia's jobs divide is deepening everywhere. Every region had more job seekers per resident in 2025 than in 2019. The pressure is concentrated in inner-city areas, suggesting that population growth and job-seeking demand rise together in the densest places, intensifying competition for work where people are most concentrated.</p></div>
+</div></div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer><div class="wrap">
+  <div class="fg">
+    <div>
+      <div class="fl">About</div>
+      <p>Created for FIT2179 Data Visualisation 2, Monash University, Semester 1 2026. Designed for a general Australian audience. Uses two official government data sources to explore the geographic mismatch between where Australians live and where job-seeking pressure is highest. All charts built with Vega-Lite v5. AI tools used for grammar checking and data processing scripts. Author, 2026.</p>
+    </div>
+    <div>
+      <div class="fl">Data Sources</div>
+      <ul>
+        <li>ABS Regional Population Growth, Australia, 2024&ndash;25 (cat. 3218.0)</li>
+        <li style="margin-top:5px">DEWR Job Seeker data by SA4 &amp; ANZSCO, 2015&ndash;2026 (Labour Market Information Portal)</li>
+      </ul>
+    </div>
+    <div>
+      <div class="fl">Charts</div>
+      <p>1 Population bar &middot; 2 Growth lollipop &middot; 3 Migration components* &middot; 4 Geographic map &middot; 5 Annotated area* &middot; 6 Small multiples* &middot; 7 Occupations bar &middot; 8 Heatmap* &middot; 9 Diverging dots* &middot; 10 Slope chart* &middot; 11 Quadrant scatter* &middot; 12 Dumbbell* &nbsp;&mdash;&nbsp;<em>* custom-built idiom</em></p>
+    </div>
+  </div>
+</div></footer>
+
+<script>
+// Load each chart from its JSON file in the charts/ folder
+const E = (id, url) =>
+  vegaEmbed(id, url, { actions: false, renderer: "svg" });
+
+E("#c1",  "charts/chart1_population_bar.json");
+E("#c2",  "charts/chart2_growth_lollipop.json");
+E("#c3",  "charts/chart3_migration_components.json");
+E("#c4",  "charts/chart4_geographic_map.json");
+E("#c5",  "charts/chart5_area_annotated.json");
+E("#c6",  "charts/chart6_small_multiples.json");
+E("#c7",  "charts/chart7_top_occupations.json");
+E("#c8",  "charts/chart8_heatmap.json");
+E("#c9",  "charts/chart9_diverging_dots.json");
+E("#c10", "charts/chart10_slope.json");
+E("#c11", "charts/chart11_scatter_quadrant.json");
+E("#c12", "charts/chart12_dumbbell.json");
+</script>
+</body>
+</html>
