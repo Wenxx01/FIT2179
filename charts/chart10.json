@@ -1,0 +1,276 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "width": "container",
+  "height": 300,
+  "data": {
+    "name": "SL"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "opacity": 0.9
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "axis": {
+            "title": null,
+            "labelFontSize": 14,
+            "labelFontWeight": "600"
+          }
+        },
+        "y": {
+          "field": "job_seekers",
+          "type": "quantitative",
+          "axis": {
+            "title": "Total Annual Workers",
+            "format": ",.0s"
+          }
+        },
+        "detail": {
+          "field": "state"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "WA",
+              "SA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "range": [
+              "#C0381A",
+              "#1A6850",
+              "#D08A0A",
+              "#1E4E90",
+              "#7A2E88",
+              "#188858",
+              "#C06810",
+              "#882E18"
+            ]
+          },
+          "legend": {
+            "title": "State",
+            "orient": "right",
+            "symbolSize": 80
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 100
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "job_seekers",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "WA",
+              "SA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "range": [
+              "#C0381A",
+              "#1A6850",
+              "#D08A0A",
+              "#1E4E90",
+              "#7A2E88",
+              "#188858",
+              "#C06810",
+              "#882E18"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "job_seekers",
+            "title": "Workers",
+            "format": ",.0f"
+          },
+          {
+            "field": "change_pct",
+            "title": "% Growth 2019-2025"
+          }
+        ]
+      }
+    }
+  ],
+  "datasets": {
+    "SL": [
+      {
+        "year": 2019,
+        "state": "ACT",
+        "job_seekers": 2853305,
+        "change_pct": 15.1,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "NSW",
+        "job_seekers": 48415856,
+        "change_pct": 11.0,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "NT",
+        "job_seekers": 1584914,
+        "change_pct": 9.6,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "QLD",
+        "job_seekers": 30215642,
+        "change_pct": 18.6,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "SA",
+        "job_seekers": 10242776,
+        "change_pct": 14.4,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "TAS",
+        "job_seekers": 3110966,
+        "change_pct": 9.1,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "VIC",
+        "job_seekers": 39983395,
+        "change_pct": 13.3,
+        "direction": "Increased"
+      },
+      {
+        "year": 2019,
+        "state": "WA",
+        "job_seekers": 16416341,
+        "change_pct": 20.6,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "ACT",
+        "job_seekers": 3283360,
+        "change_pct": 15.1,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "NSW",
+        "job_seekers": 53740986,
+        "change_pct": 11.0,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "NT",
+        "job_seekers": 1736907,
+        "change_pct": 9.6,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "QLD",
+        "job_seekers": 35841446,
+        "change_pct": 18.6,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "SA",
+        "job_seekers": 11720220,
+        "change_pct": 14.4,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "TAS",
+        "job_seekers": 3392518,
+        "change_pct": 9.1,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "VIC",
+        "job_seekers": 45304702,
+        "change_pct": 13.3,
+        "direction": "Increased"
+      },
+      {
+        "year": 2025,
+        "state": "WA",
+        "job_seekers": 19793887,
+        "change_pct": 20.6,
+        "direction": "Increased"
+      }
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#FDFAF2",
+  "width": "container",
+  "height": 540,
+  "data": {
+    "url": "../data/sa4_geo_vega_projected.json",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "projection": {
+    "type": "identity",
+    "reflectY": false,
+    "scale": 1,
+    "translate": [
+      0,
+      0
+    ]
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 0.55
+  },
+  "encoding": {
+    "shape": {
+      "field": "geometry",
+      "type": "geojson"
+    },
+    "color": {
+      "field": "properties.js_per_1000",
+      "type": "quantitative",
+      "scale": {
+        "scheme": "reds",
+        "domain": [
+          410,
+          665
+        ]
+      },
+      "legend": {
+        "title": "Workers per 1,000 residents",
+        "orient": "bottom-left",
+        "gradientLength": 160,
+        "gradientThickness": 10,
+        "labelFont": "DM Sans",
+        "titleFont": "DM Sans"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "properties.sa4_name",
+        "title": "Region"
+      },
+      {
+        "field": "properties.state",
+        "title": "State"
+      },
+      {
+        "field": "properties.js_per_1000",
+        "title": "Workers per 1,000"
+      },
+      {
+        "field": "properties.js_deviation",
+        "title": "Deviation from avg"
+      },
+      {
+        "field": "properties.job_seekers",
+        "title": "Workers",
+        "format": ",.0f"
+      },
+      {
+        "field": "properties.pop_2025",
+        "title": "Population",
+        "format": ",.0f"
+      }
+    ]
+  }
+}

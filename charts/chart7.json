@@ -1,0 +1,135 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "width": "container",
+  "height": 330,
+  "data": {
+    "name": "TO"
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3,
+    "color": "#D08A0A"
+  },
+  "encoding": {
+    "y": {
+      "field": "occupation",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelLimit": 240,
+        "labelFontSize": 10.5
+      }
+    },
+    "x": {
+      "field": "job_seekers",
+      "type": "quantitative",
+      "axis": {
+        "title": "Workers (March 2026)",
+        "format": ",.0f"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "occupation",
+        "title": "Occupation"
+      },
+      {
+        "field": "job_seekers",
+        "title": "Workers",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "datasets": {
+    "TO": [
+      {
+        "occupation": "Sales Assistants (General)",
+        "job_seekers": 573153
+      },
+      {
+        "occupation": "Registered Nurses",
+        "job_seekers": 371889
+      },
+      {
+        "occupation": "Aged and Disabled Carers",
+        "job_seekers": 364661
+      },
+      {
+        "occupation": "General Clerks",
+        "job_seekers": 291295
+      },
+      {
+        "occupation": "Retail Managers",
+        "job_seekers": 250860
+      },
+      {
+        "occupation": "Accountants",
+        "job_seekers": 228538
+      },
+      {
+        "occupation": "Truck Drivers",
+        "job_seekers": 201460
+      },
+      {
+        "occupation": "Software and Applications Programmers",
+        "job_seekers": 200291
+      },
+      {
+        "occupation": "Electricians",
+        "job_seekers": 198274
+      },
+      {
+        "occupation": "Child Carers",
+        "job_seekers": 185613
+      },
+      {
+        "occupation": "Receptionists",
+        "job_seekers": 181629
+      },
+      {
+        "occupation": "Storepersons",
+        "job_seekers": 175050
+      },
+      {
+        "occupation": "Advertising, Public Relations and Sales Managers",
+        "job_seekers": 168011
+      },
+      {
+        "occupation": "Secondary School Teachers",
+        "job_seekers": 167723
+      },
+      {
+        "occupation": "Primary School Teachers",
+        "job_seekers": 166881
+      }
+    ]
+  }
+}

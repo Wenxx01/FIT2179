@@ -1,0 +1,1359 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "width": "container",
+  "height": 400,
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "x": 350000
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#D6CCBA",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "x",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "y": 200000
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#D6CCBA",
+        "strokeDash": [
+          6,
+          4
+        ],
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "y": {
+          "field": "y",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "px": 55000,
+            "py": 790000,
+            "t": "Small pop, High workers"
+          },
+          {
+            "px": 700000,
+            "py": 790000,
+            "t": "Large pop, High workers"
+          },
+          {
+            "px": 55000,
+            "py": 28000,
+            "t": "Small pop, Low workers"
+          },
+          {
+            "px": 700000,
+            "py": 28000,
+            "t": "Large pop, Low workers"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "fontSize": 9.5,
+        "fontStyle": "italic",
+        "opacity": 0.55
+      },
+      "encoding": {
+        "x": {
+          "field": "px",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "py",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        },
+        "color": {
+          "value": "#7A6A52"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "sa4_code": 101,
+            "sa4_name": "Capital Region",
+            "state": "NSW",
+            "pop_2025": 248376.0,
+            "job_seekers": 124148,
+            "js_per_1000": 499.8,
+            "js_deviation": -30.4,
+            "pop_change_pct": 0.9,
+            "natural_increase": 390.0,
+            "net_internal_migration": 789.0,
+            "net_overseas_migration": 942.0
+          },
+          {
+            "sa4_code": 102,
+            "sa4_name": "Central Coast",
+            "state": "NSW",
+            "pop_2025": 357816.0,
+            "job_seekers": 170490,
+            "js_per_1000": 476.5,
+            "js_deviation": -53.7,
+            "pop_change_pct": 0.7,
+            "natural_increase": 401.0,
+            "net_internal_migration": 238.0,
+            "net_overseas_migration": 1823.0
+          },
+          {
+            "sa4_code": 103,
+            "sa4_name": "Central West",
+            "state": "NSW",
+            "pop_2025": 216979.0,
+            "job_seekers": 114822,
+            "js_per_1000": 529.2,
+            "js_deviation": -1.0,
+            "pop_change_pct": 0.3,
+            "natural_increase": 474.0,
+            "net_internal_migration": -437.0,
+            "net_overseas_migration": 604.0
+          },
+          {
+            "sa4_code": 104,
+            "sa4_name": "Coffs Harbour - Grafton",
+            "state": "NSW",
+            "pop_2025": 152331.0,
+            "job_seekers": 65471,
+            "js_per_1000": 429.8,
+            "js_deviation": -100.4,
+            "pop_change_pct": 0.8,
+            "natural_increase": -41.0,
+            "net_internal_migration": 729.0,
+            "net_overseas_migration": 586.0
+          },
+          {
+            "sa4_code": 105,
+            "sa4_name": "Far West and Orana",
+            "state": "NSW",
+            "pop_2025": 118372.0,
+            "job_seekers": 55575,
+            "js_per_1000": 469.5,
+            "js_deviation": -60.7,
+            "pop_change_pct": 0.0,
+            "natural_increase": 498.0,
+            "net_internal_migration": -810.0,
+            "net_overseas_migration": 364.0
+          },
+          {
+            "sa4_code": 106,
+            "sa4_name": "Hunter Valley exc Newcastle",
+            "state": "NSW",
+            "pop_2025": 316250.0,
+            "job_seekers": 149820,
+            "js_per_1000": 473.7,
+            "js_deviation": -56.5,
+            "pop_change_pct": 1.8,
+            "natural_increase": 1278.0,
+            "net_internal_migration": 3327.0,
+            "net_overseas_migration": 821.0
+          },
+          {
+            "sa4_code": 107,
+            "sa4_name": "Illawarra",
+            "state": "NSW",
+            "pop_2025": 330469.0,
+            "job_seekers": 166849,
+            "js_per_1000": 504.9,
+            "js_deviation": -25.3,
+            "pop_change_pct": 1.1,
+            "natural_increase": 904.0,
+            "net_internal_migration": 783.0,
+            "net_overseas_migration": 1983.0
+          },
+          {
+            "sa4_code": 108,
+            "sa4_name": "Mid North Coast",
+            "state": "NSW",
+            "pop_2025": 239566.0,
+            "job_seekers": 98450,
+            "js_per_1000": 411.0,
+            "js_deviation": -119.2,
+            "pop_change_pct": 1.0,
+            "natural_increase": -865.0,
+            "net_internal_migration": 2727.0,
+            "net_overseas_migration": 540.0
+          },
+          {
+            "sa4_code": 109,
+            "sa4_name": "Murray",
+            "state": "NSW",
+            "pop_2025": 130078.0,
+            "job_seekers": 65653,
+            "js_per_1000": 504.7,
+            "js_deviation": -25.5,
+            "pop_change_pct": 1.1,
+            "natural_increase": 224.0,
+            "net_internal_migration": 829.0,
+            "net_overseas_migration": 419.0
+          },
+          {
+            "sa4_code": 110,
+            "sa4_name": "New England and North West",
+            "state": "NSW",
+            "pop_2025": 191401.0,
+            "job_seekers": 98916,
+            "js_per_1000": 516.8,
+            "js_deviation": -13.4,
+            "pop_change_pct": 0.3,
+            "natural_increase": 449.0,
+            "net_internal_migration": -608.0,
+            "net_overseas_migration": 725.0
+          },
+          {
+            "sa4_code": 111,
+            "sa4_name": "Newcastle and Lake Macquarie",
+            "state": "NSW",
+            "pop_2025": 412359.0,
+            "job_seekers": 218248,
+            "js_per_1000": 529.3,
+            "js_deviation": -0.9,
+            "pop_change_pct": 1.1,
+            "natural_increase": 702.0,
+            "net_internal_migration": 1459.0,
+            "net_overseas_migration": 2344.0
+          },
+          {
+            "sa4_code": 112,
+            "sa4_name": "Richmond - Tweed",
+            "state": "NSW",
+            "pop_2025": 265824.0,
+            "job_seekers": 128591,
+            "js_per_1000": 483.7,
+            "js_deviation": -46.5,
+            "pop_change_pct": 0.7,
+            "natural_increase": 66.0,
+            "net_internal_migration": 676.0,
+            "net_overseas_migration": 1181.0
+          },
+          {
+            "sa4_code": 113,
+            "sa4_name": "Riverina",
+            "state": "NSW",
+            "pop_2025": 166404.0,
+            "job_seekers": 82575,
+            "js_per_1000": 496.2,
+            "js_deviation": -34.0,
+            "pop_change_pct": 0.1,
+            "natural_increase": 702.0,
+            "net_internal_migration": -1354.0,
+            "net_overseas_migration": 754.0
+          },
+          {
+            "sa4_code": 114,
+            "sa4_name": "Southern Highlands and Shoalhaven",
+            "state": "NSW",
+            "pop_2025": 165285.0,
+            "job_seekers": 72381,
+            "js_per_1000": 437.9,
+            "js_deviation": -92.3,
+            "pop_change_pct": 0.7,
+            "natural_increase": -314.0,
+            "net_internal_migration": 844.0,
+            "net_overseas_migration": 560.0
+          },
+          {
+            "sa4_code": 115,
+            "sa4_name": "Sydney - Baulkham Hills and Hawkesbury",
+            "state": "NSW",
+            "pop_2025": 295667.0,
+            "job_seekers": 159276,
+            "js_per_1000": 538.7,
+            "js_deviation": 8.5,
+            "pop_change_pct": 2.6,
+            "natural_increase": 1024.0,
+            "net_internal_migration": 3871.0,
+            "net_overseas_migration": 2505.0
+          },
+          {
+            "sa4_code": 116,
+            "sa4_name": "Sydney - Blacktown",
+            "state": "NSW",
+            "pop_2025": 452374.0,
+            "job_seekers": 242359,
+            "js_per_1000": 535.7,
+            "js_deviation": 5.5,
+            "pop_change_pct": 2.1,
+            "natural_increase": 4065.0,
+            "net_internal_migration": 160.0,
+            "net_overseas_migration": 5063.0
+          },
+          {
+            "sa4_code": 117,
+            "sa4_name": "Sydney - City and Inner South",
+            "state": "NSW",
+            "pop_2025": 369674.0,
+            "job_seekers": 231808,
+            "js_per_1000": 627.1,
+            "js_deviation": 96.9,
+            "pop_change_pct": 1.6,
+            "natural_increase": 1606.0,
+            "net_internal_migration": -5111.0,
+            "net_overseas_migration": 9366.0
+          },
+          {
+            "sa4_code": 118,
+            "sa4_name": "Sydney - Eastern Suburbs",
+            "state": "NSW",
+            "pop_2025": 280449.0,
+            "job_seekers": 169170,
+            "js_per_1000": 603.2,
+            "js_deviation": 73.0,
+            "pop_change_pct": 0.8,
+            "natural_increase": 1226.0,
+            "net_internal_migration": -5225.0,
+            "net_overseas_migration": 6261.0
+          },
+          {
+            "sa4_code": 119,
+            "sa4_name": "Sydney - Inner South West",
+            "state": "NSW",
+            "pop_2025": 642157.0,
+            "job_seekers": 336319,
+            "js_per_1000": 523.7,
+            "js_deviation": -6.5,
+            "pop_change_pct": 1.2,
+            "natural_increase": 3609.0,
+            "net_internal_migration": -7720.0,
+            "net_overseas_migration": 11692.0
+          },
+          {
+            "sa4_code": 120,
+            "sa4_name": "Sydney - Inner West",
+            "state": "NSW",
+            "pop_2025": 324297.0,
+            "job_seekers": 188059,
+            "js_per_1000": 579.9,
+            "js_deviation": 49.7,
+            "pop_change_pct": 1.1,
+            "natural_increase": 1348.0,
+            "net_internal_migration": -3542.0,
+            "net_overseas_migration": 5750.0
+          },
+          {
+            "sa4_code": 121,
+            "sa4_name": "Sydney - North Sydney and Hornsby",
+            "state": "NSW",
+            "pop_2025": 447312.0,
+            "job_seekers": 247067,
+            "js_per_1000": 552.3,
+            "js_deviation": 22.1,
+            "pop_change_pct": 0.6,
+            "natural_increase": 1148.0,
+            "net_internal_migration": -4810.0,
+            "net_overseas_migration": 6453.0
+          },
+          {
+            "sa4_code": 122,
+            "sa4_name": "Sydney - Northern Beaches",
+            "state": "NSW",
+            "pop_2025": 272656.0,
+            "job_seekers": 153124,
+            "js_per_1000": 561.6,
+            "js_deviation": 31.4,
+            "pop_change_pct": 0.5,
+            "natural_increase": 692.0,
+            "net_internal_migration": -2600.0,
+            "net_overseas_migration": 3324.0
+          },
+          {
+            "sa4_code": 123,
+            "sa4_name": "Sydney - Outer South West",
+            "state": "NSW",
+            "pop_2025": 323758.0,
+            "job_seekers": 169598,
+            "js_per_1000": 523.8,
+            "js_deviation": -6.4,
+            "pop_change_pct": 1.6,
+            "natural_increase": 2602.0,
+            "net_internal_migration": 536.0,
+            "net_overseas_migration": 2061.0
+          },
+          {
+            "sa4_code": 124,
+            "sa4_name": "Sydney - Outer West and Blue Mountains",
+            "state": "NSW",
+            "pop_2025": 350649.0,
+            "job_seekers": 187717,
+            "js_per_1000": 535.3,
+            "js_deviation": 5.1,
+            "pop_change_pct": 1.1,
+            "natural_increase": 2082.0,
+            "net_internal_migration": -203.0,
+            "net_overseas_migration": 1926.0
+          },
+          {
+            "sa4_code": 125,
+            "sa4_name": "Sydney - Parramatta",
+            "state": "NSW",
+            "pop_2025": 535540.0,
+            "job_seekers": 283381,
+            "js_per_1000": 529.2,
+            "js_deviation": -1.0,
+            "pop_change_pct": 1.5,
+            "natural_increase": 4545.0,
+            "net_internal_migration": -8396.0,
+            "net_overseas_migration": 11575.0
+          },
+          {
+            "sa4_code": 126,
+            "sa4_name": "Sydney - Ryde",
+            "state": "NSW",
+            "pop_2025": 218606.0,
+            "job_seekers": 125111,
+            "js_per_1000": 572.3,
+            "js_deviation": 42.1,
+            "pop_change_pct": 1.3,
+            "natural_increase": 883.0,
+            "net_internal_migration": -1800.0,
+            "net_overseas_migration": 3745.0
+          },
+          {
+            "sa4_code": 127,
+            "sa4_name": "Sydney - South West",
+            "state": "NSW",
+            "pop_2025": 527701.0,
+            "job_seekers": 247922,
+            "js_per_1000": 469.8,
+            "js_deviation": -60.4,
+            "pop_change_pct": 2.0,
+            "natural_increase": 4095.0,
+            "net_internal_migration": 1188.0,
+            "net_overseas_migration": 5254.0
+          },
+          {
+            "sa4_code": 128,
+            "sa4_name": "Sydney - Sutherland",
+            "state": "NSW",
+            "pop_2025": 240174.0,
+            "job_seekers": 133458,
+            "js_per_1000": 555.7,
+            "js_deviation": 25.5,
+            "pop_change_pct": 1.1,
+            "natural_increase": 783.0,
+            "net_internal_migration": 132.0,
+            "net_overseas_migration": 1605.0
+          },
+          {
+            "sa4_code": 201,
+            "sa4_name": "Ballarat",
+            "state": "VIC",
+            "pop_2025": 184285.0,
+            "job_seekers": 91020,
+            "js_per_1000": 493.9,
+            "js_deviation": -36.3,
+            "pop_change_pct": 1.4,
+            "natural_increase": 481.0,
+            "net_internal_migration": 1456.0,
+            "net_overseas_migration": 592.0
+          },
+          {
+            "sa4_code": 202,
+            "sa4_name": "Bendigo",
+            "state": "VIC",
+            "pop_2025": 173769.0,
+            "job_seekers": 86055,
+            "js_per_1000": 495.2,
+            "js_deviation": -35.0,
+            "pop_change_pct": 1.0,
+            "natural_increase": 354.0,
+            "net_internal_migration": 764.0,
+            "net_overseas_migration": 538.0
+          },
+          {
+            "sa4_code": 203,
+            "sa4_name": "Geelong",
+            "state": "VIC",
+            "pop_2025": 355990.0,
+            "job_seekers": 185151,
+            "js_per_1000": 520.1,
+            "js_deviation": -10.1,
+            "pop_change_pct": 2.1,
+            "natural_increase": 1807.0,
+            "net_internal_migration": 3662.0,
+            "net_overseas_migration": 1721.0
+          },
+          {
+            "sa4_code": 204,
+            "sa4_name": "Hume",
+            "state": "VIC",
+            "pop_2025": 189765.0,
+            "job_seekers": 96024,
+            "js_per_1000": 506.0,
+            "js_deviation": -24.2,
+            "pop_change_pct": 0.9,
+            "natural_increase": 321.0,
+            "net_internal_migration": 712.0,
+            "net_overseas_migration": 599.0
+          },
+          {
+            "sa4_code": 205,
+            "sa4_name": "Latrobe - Gippsland",
+            "state": "VIC",
+            "pop_2025": 313733.0,
+            "job_seekers": 147551,
+            "js_per_1000": 470.3,
+            "js_deviation": -59.9,
+            "pop_change_pct": 1.1,
+            "natural_increase": 400.0,
+            "net_internal_migration": 2295.0,
+            "net_overseas_migration": 761.0
+          },
+          {
+            "sa4_code": 206,
+            "sa4_name": "Melbourne - Inner",
+            "state": "VIC",
+            "pop_2025": 713493.0,
+            "job_seekers": 471763,
+            "js_per_1000": 661.2,
+            "js_deviation": 131.0,
+            "pop_change_pct": 2.2,
+            "natural_increase": 2891.0,
+            "net_internal_migration": -5978.0,
+            "net_overseas_migration": 18542.0
+          },
+          {
+            "sa4_code": 207,
+            "sa4_name": "Melbourne - Inner East",
+            "state": "VIC",
+            "pop_2025": 405012.0,
+            "job_seekers": 224260,
+            "js_per_1000": 553.7,
+            "js_deviation": 23.5,
+            "pop_change_pct": 1.2,
+            "natural_increase": 127.0,
+            "net_internal_migration": -3134.0,
+            "net_overseas_migration": 7806.0
+          },
+          {
+            "sa4_code": 208,
+            "sa4_name": "Melbourne - Inner South",
+            "state": "VIC",
+            "pop_2025": 454338.0,
+            "job_seekers": 254515,
+            "js_per_1000": 560.2,
+            "js_deviation": 30.0,
+            "pop_change_pct": 1.4,
+            "natural_increase": 1020.0,
+            "net_internal_migration": -1263.0,
+            "net_overseas_migration": 6385.0
+          },
+          {
+            "sa4_code": 209,
+            "sa4_name": "Melbourne - North East",
+            "state": "VIC",
+            "pop_2025": 596605.0,
+            "job_seekers": 323009,
+            "js_per_1000": 541.4,
+            "js_deviation": 11.2,
+            "pop_change_pct": 2.3,
+            "natural_increase": 3848.0,
+            "net_internal_migration": 2317.0,
+            "net_overseas_migration": 7313.0
+          },
+          {
+            "sa4_code": 210,
+            "sa4_name": "Melbourne - North West",
+            "state": "VIC",
+            "pop_2025": 473116.0,
+            "job_seekers": 234423,
+            "js_per_1000": 495.5,
+            "js_deviation": -34.7,
+            "pop_change_pct": 2.4,
+            "natural_increase": 4341.0,
+            "net_internal_migration": 982.0,
+            "net_overseas_migration": 5620.0
+          },
+          {
+            "sa4_code": 211,
+            "sa4_name": "Melbourne - Outer East",
+            "state": "VIC",
+            "pop_2025": 536368.0,
+            "job_seekers": 288026,
+            "js_per_1000": 537.0,
+            "js_deviation": 6.8,
+            "pop_change_pct": 0.7,
+            "natural_increase": 1861.0,
+            "net_internal_migration": -2888.0,
+            "net_overseas_migration": 4644.0
+          },
+          {
+            "sa4_code": 212,
+            "sa4_name": "Melbourne - South East",
+            "state": "VIC",
+            "pop_2025": 958772.0,
+            "job_seekers": 504893,
+            "js_per_1000": 526.6,
+            "js_deviation": -3.6,
+            "pop_change_pct": 2.1,
+            "natural_increase": 7177.0,
+            "net_internal_migration": -3418.0,
+            "net_overseas_migration": 15771.0
+          },
+          {
+            "sa4_code": 213,
+            "sa4_name": "Melbourne - West",
+            "state": "VIC",
+            "pop_2025": 980300.0,
+            "job_seekers": 519679,
+            "js_per_1000": 530.1,
+            "js_deviation": -0.1,
+            "pop_change_pct": 3.0,
+            "natural_increase": 10675.0,
+            "net_internal_migration": 4685.0,
+            "net_overseas_migration": 13268.0
+          },
+          {
+            "sa4_code": 214,
+            "sa4_name": "Mornington Peninsula",
+            "state": "VIC",
+            "pop_2025": 317586.0,
+            "job_seekers": 159699,
+            "js_per_1000": 502.9,
+            "js_deviation": -27.3,
+            "pop_change_pct": 0.8,
+            "natural_increase": 476.0,
+            "net_internal_migration": 143.0,
+            "net_overseas_migration": 1819.0
+          },
+          {
+            "sa4_code": 215,
+            "sa4_name": "North West",
+            "state": "VIC",
+            "pop_2025": 153762.0,
+            "job_seekers": 76568,
+            "js_per_1000": 498.0,
+            "js_deviation": -32.2,
+            "pop_change_pct": 0.2,
+            "natural_increase": 325.0,
+            "net_internal_migration": -642.0,
+            "net_overseas_migration": 670.0
+          },
+          {
+            "sa4_code": 216,
+            "sa4_name": "Shepparton",
+            "state": "VIC",
+            "pop_2025": 138645.0,
+            "job_seekers": 67176,
+            "js_per_1000": 484.5,
+            "js_deviation": -45.7,
+            "pop_change_pct": 0.4,
+            "natural_increase": 284.0,
+            "net_internal_migration": -326.0,
+            "net_overseas_migration": 654.0
+          },
+          {
+            "sa4_code": 217,
+            "sa4_name": "Warrnambool and South West",
+            "state": "VIC",
+            "pop_2025": 128320.0,
+            "job_seekers": 66097,
+            "js_per_1000": 515.1,
+            "js_deviation": -15.1,
+            "pop_change_pct": 0.3,
+            "natural_increase": 128.0,
+            "net_internal_migration": -144.0,
+            "net_overseas_migration": 456.0
+          },
+          {
+            "sa4_code": 301,
+            "sa4_name": "Brisbane - East",
+            "state": "QLD",
+            "pop_2025": 258510.0,
+            "job_seekers": 141556,
+            "js_per_1000": 547.6,
+            "js_deviation": 17.4,
+            "pop_change_pct": 1.5,
+            "natural_increase": 466.0,
+            "net_internal_migration": 1449.0,
+            "net_overseas_migration": 1923.0
+          },
+          {
+            "sa4_code": 302,
+            "sa4_name": "Brisbane - North",
+            "state": "QLD",
+            "pop_2025": 244037.0,
+            "job_seekers": 141594,
+            "js_per_1000": 580.2,
+            "js_deviation": 50.0,
+            "pop_change_pct": 1.5,
+            "natural_increase": 848.0,
+            "net_internal_migration": 34.0,
+            "net_overseas_migration": 2827.0
+          },
+          {
+            "sa4_code": 303,
+            "sa4_name": "Brisbane - South",
+            "state": "QLD",
+            "pop_2025": 412436.0,
+            "job_seekers": 232141,
+            "js_per_1000": 562.9,
+            "js_deviation": 32.7,
+            "pop_change_pct": 1.7,
+            "natural_increase": 1800.0,
+            "net_internal_migration": -3119.0,
+            "net_overseas_migration": 8302.0
+          },
+          {
+            "sa4_code": 304,
+            "sa4_name": "Brisbane - West",
+            "state": "QLD",
+            "pop_2025": 204443.0,
+            "job_seekers": 111505,
+            "js_per_1000": 545.4,
+            "js_deviation": 15.2,
+            "pop_change_pct": 1.1,
+            "natural_increase": 265.0,
+            "net_internal_migration": -955.0,
+            "net_overseas_migration": 2865.0
+          },
+          {
+            "sa4_code": 305,
+            "sa4_name": "Brisbane Inner City",
+            "state": "QLD",
+            "pop_2025": 335571.0,
+            "job_seekers": 221910,
+            "js_per_1000": 661.3,
+            "js_deviation": 131.1,
+            "pop_change_pct": 2.0,
+            "natural_increase": 1125.0,
+            "net_internal_migration": -2339.0,
+            "net_overseas_migration": 7680.0
+          },
+          {
+            "sa4_code": 306,
+            "sa4_name": "Cairns",
+            "state": "QLD",
+            "pop_2025": 271408.0,
+            "job_seekers": 144627,
+            "js_per_1000": 532.9,
+            "js_deviation": 2.7,
+            "pop_change_pct": 1.0,
+            "natural_increase": 601.0,
+            "net_internal_migration": -383.0,
+            "net_overseas_migration": 2502.0
+          },
+          {
+            "sa4_code": 307,
+            "sa4_name": "Darling Downs - Maranoa",
+            "state": "QLD",
+            "pop_2025": 134169.0,
+            "job_seekers": 69423,
+            "js_per_1000": 517.4,
+            "js_deviation": -12.8,
+            "pop_change_pct": 0.6,
+            "natural_increase": 298.0,
+            "net_internal_migration": 202.0,
+            "net_overseas_migration": 321.0
+          },
+          {
+            "sa4_code": 308,
+            "sa4_name": "Central Queensland",
+            "state": "QLD",
+            "pop_2025": 244220.0,
+            "job_seekers": 130147,
+            "js_per_1000": 532.9,
+            "js_deviation": 2.7,
+            "pop_change_pct": 1.2,
+            "natural_increase": 1086.0,
+            "net_internal_migration": 894.0,
+            "net_overseas_migration": 923.0
+          },
+          {
+            "sa4_code": 309,
+            "sa4_name": "Gold Coast",
+            "state": "QLD",
+            "pop_2025": 708085.0,
+            "job_seekers": 394734,
+            "js_per_1000": 557.5,
+            "js_deviation": 27.3,
+            "pop_change_pct": 1.8,
+            "natural_increase": 2328.0,
+            "net_internal_migration": 803.0,
+            "net_overseas_migration": 9084.0
+          },
+          {
+            "sa4_code": 310,
+            "sa4_name": "Ipswich",
+            "state": "QLD",
+            "pop_2025": 419370.0,
+            "job_seekers": 208180,
+            "js_per_1000": 496.4,
+            "js_deviation": -33.8,
+            "pop_change_pct": 2.8,
+            "natural_increase": 3224.0,
+            "net_internal_migration": 5150.0,
+            "net_overseas_migration": 3103.0
+          },
+          {
+            "sa4_code": 311,
+            "sa4_name": "Logan - Beaudesert",
+            "state": "QLD",
+            "pop_2025": 420157.0,
+            "job_seekers": 207903,
+            "js_per_1000": 494.8,
+            "js_deviation": -35.4,
+            "pop_change_pct": 3.1,
+            "natural_increase": 3524.0,
+            "net_internal_migration": 5616.0,
+            "net_overseas_migration": 3361.0
+          },
+          {
+            "sa4_code": 312,
+            "sa4_name": "Mackay - Isaac - Whitsunday",
+            "state": "QLD",
+            "pop_2025": 193813.0,
+            "job_seekers": 110299,
+            "js_per_1000": 569.1,
+            "js_deviation": 38.9,
+            "pop_change_pct": 1.0,
+            "natural_increase": 940.0,
+            "net_internal_migration": -75.0,
+            "net_overseas_migration": 1011.0
+          },
+          {
+            "sa4_code": 313,
+            "sa4_name": "Moreton Bay - North",
+            "state": "QLD",
+            "pop_2025": 300041.0,
+            "job_seekers": 135235,
+            "js_per_1000": 450.7,
+            "js_deviation": -79.5,
+            "pop_change_pct": 2.8,
+            "natural_increase": 400.0,
+            "net_internal_migration": 5673.0,
+            "net_overseas_migration": 1979.0
+          },
+          {
+            "sa4_code": 314,
+            "sa4_name": "Moreton Bay - South",
+            "state": "QLD",
+            "pop_2025": 238959.0,
+            "job_seekers": 133762,
+            "js_per_1000": 559.8,
+            "js_deviation": 29.6,
+            "pop_change_pct": 1.3,
+            "natural_increase": 1560.0,
+            "net_internal_migration": -432.0,
+            "net_overseas_migration": 1894.0
+          },
+          {
+            "sa4_code": 315,
+            "sa4_name": "Queensland - Outback",
+            "state": "QLD",
+            "pop_2025": 82563.0,
+            "job_seekers": 40256,
+            "js_per_1000": 487.6,
+            "js_deviation": -42.6,
+            "pop_change_pct": 0.4,
+            "natural_increase": 896.0,
+            "net_internal_migration": -883.0,
+            "net_overseas_migration": 318.0
+          },
+          {
+            "sa4_code": 316,
+            "sa4_name": "Sunshine Coast",
+            "state": "QLD",
+            "pop_2025": 441508.0,
+            "job_seekers": 224492,
+            "js_per_1000": 508.5,
+            "js_deviation": -21.7,
+            "pop_change_pct": 1.9,
+            "natural_increase": 413.0,
+            "net_internal_migration": 4295.0,
+            "net_overseas_migration": 3487.0
+          },
+          {
+            "sa4_code": 317,
+            "sa4_name": "Toowoomba",
+            "state": "QLD",
+            "pop_2025": 175707.0,
+            "job_seekers": 86102,
+            "js_per_1000": 490.0,
+            "js_deviation": -40.2,
+            "pop_change_pct": 1.4,
+            "natural_increase": 699.0,
+            "net_internal_migration": 364.0,
+            "net_overseas_migration": 1277.0
+          },
+          {
+            "sa4_code": 318,
+            "sa4_name": "Townsville",
+            "state": "QLD",
+            "pop_2025": 249097.0,
+            "job_seekers": 125890,
+            "js_per_1000": 505.4,
+            "js_deviation": -24.8,
+            "pop_change_pct": 1.0,
+            "natural_increase": 918.0,
+            "net_internal_migration": 255.0,
+            "net_overseas_migration": 1376.0
+          },
+          {
+            "sa4_code": 319,
+            "sa4_name": "Wide Bay",
+            "state": "QLD",
+            "pop_2025": 335670.0,
+            "job_seekers": 144273,
+            "js_per_1000": 429.8,
+            "js_deviation": -100.4,
+            "pop_change_pct": 1.7,
+            "natural_increase": -785.0,
+            "net_internal_migration": 5046.0,
+            "net_overseas_migration": 1440.0
+          },
+          {
+            "sa4_code": 401,
+            "sa4_name": "Adelaide - Central and Hills",
+            "state": "SA",
+            "pop_2025": 338950.0,
+            "job_seekers": 191959,
+            "js_per_1000": 566.3,
+            "js_deviation": 36.1,
+            "pop_change_pct": 1.5,
+            "natural_increase": 304.0,
+            "net_internal_migration": -785.0,
+            "net_overseas_migration": 5446.0
+          },
+          {
+            "sa4_code": 402,
+            "sa4_name": "Adelaide - North",
+            "state": "SA",
+            "pop_2025": 492185.0,
+            "job_seekers": 245167,
+            "js_per_1000": 498.1,
+            "js_deviation": -32.1,
+            "pop_change_pct": 1.4,
+            "natural_increase": 2258.0,
+            "net_internal_migration": 12.0,
+            "net_overseas_migration": 4729.0
+          },
+          {
+            "sa4_code": 403,
+            "sa4_name": "Adelaide - South",
+            "state": "SA",
+            "pop_2025": 396764.0,
+            "job_seekers": 213060,
+            "js_per_1000": 537.0,
+            "js_deviation": 6.8,
+            "pop_change_pct": 1.0,
+            "natural_increase": 344.0,
+            "net_internal_migration": -396.0,
+            "net_overseas_migration": 3870.0
+          },
+          {
+            "sa4_code": 404,
+            "sa4_name": "Adelaide - West",
+            "state": "SA",
+            "pop_2025": 263116.0,
+            "job_seekers": 145237,
+            "js_per_1000": 552.0,
+            "js_deviation": 21.8,
+            "pop_change_pct": 1.1,
+            "natural_increase": 342.0,
+            "net_internal_migration": -1256.0,
+            "net_overseas_migration": 3779.0
+          },
+          {
+            "sa4_code": 405,
+            "sa4_name": "Barossa - Yorke - Mid North",
+            "state": "SA",
+            "pop_2025": 120651.0,
+            "job_seekers": 56420,
+            "js_per_1000": 467.6,
+            "js_deviation": -62.6,
+            "pop_change_pct": 0.6,
+            "natural_increase": -300.0,
+            "net_internal_migration": 749.0,
+            "net_overseas_migration": 213.0
+          },
+          {
+            "sa4_code": 406,
+            "sa4_name": "South Australia - Outback",
+            "state": "SA",
+            "pop_2025": 85925.0,
+            "job_seekers": 40651,
+            "js_per_1000": 473.1,
+            "js_deviation": -57.1,
+            "pop_change_pct": -0.1,
+            "natural_increase": 178.0,
+            "net_internal_migration": -545.0,
+            "net_overseas_migration": 244.0
+          },
+          {
+            "sa4_code": 407,
+            "sa4_name": "South Australia - South East",
+            "state": "SA",
+            "pop_2025": 205074.0,
+            "job_seekers": 98018,
+            "js_per_1000": 478.0,
+            "js_deviation": -52.2,
+            "pop_change_pct": 0.6,
+            "natural_increase": -399.0,
+            "net_internal_migration": 926.0,
+            "net_overseas_migration": 788.0
+          },
+          {
+            "sa4_code": 501,
+            "sa4_name": "Bunbury",
+            "state": "WA",
+            "pop_2025": 210962.0,
+            "job_seekers": 111281,
+            "js_per_1000": 527.5,
+            "js_deviation": -2.7,
+            "pop_change_pct": 1.9,
+            "natural_increase": 484.0,
+            "net_internal_migration": 2181.0,
+            "net_overseas_migration": 1282.0
+          },
+          {
+            "sa4_code": 502,
+            "sa4_name": "Mandurah",
+            "state": "WA",
+            "pop_2025": 127502.0,
+            "job_seekers": 55739,
+            "js_per_1000": 437.2,
+            "js_deviation": -93.0,
+            "pop_change_pct": 3.5,
+            "natural_increase": 117.0,
+            "net_internal_migration": 3127.0,
+            "net_overseas_migration": 1035.0
+          },
+          {
+            "sa4_code": 503,
+            "sa4_name": "Perth - Inner",
+            "state": "WA",
+            "pop_2025": 212390.0,
+            "job_seekers": 129088,
+            "js_per_1000": 607.8,
+            "js_deviation": 77.6,
+            "pop_change_pct": 1.9,
+            "natural_increase": 313.0,
+            "net_internal_migration": -1348.0,
+            "net_overseas_migration": 4957.0
+          },
+          {
+            "sa4_code": 504,
+            "sa4_name": "Perth - North East",
+            "state": "WA",
+            "pop_2025": 324644.0,
+            "job_seekers": 178326,
+            "js_per_1000": 549.3,
+            "js_deviation": 19.1,
+            "pop_change_pct": 3.1,
+            "natural_increase": 2333.0,
+            "net_internal_migration": 3421.0,
+            "net_overseas_migration": 3873.0
+          },
+          {
+            "sa4_code": 505,
+            "sa4_name": "Perth - North West",
+            "state": "WA",
+            "pop_2025": 657092.0,
+            "job_seekers": 368341,
+            "js_per_1000": 560.6,
+            "js_deviation": 30.4,
+            "pop_change_pct": 2.1,
+            "natural_increase": 3656.0,
+            "net_internal_migration": 127.0,
+            "net_overseas_migration": 9758.0
+          },
+          {
+            "sa4_code": 506,
+            "sa4_name": "Perth - South East",
+            "state": "WA",
+            "pop_2025": 611748.0,
+            "job_seekers": 337481,
+            "js_per_1000": 551.7,
+            "js_deviation": 21.5,
+            "pop_change_pct": 2.1,
+            "natural_increase": 3577.0,
+            "net_internal_migration": -2328.0,
+            "net_overseas_migration": 11089.0
+          },
+          {
+            "sa4_code": 507,
+            "sa4_name": "Perth - South West",
+            "state": "WA",
+            "pop_2025": 519389.0,
+            "job_seekers": 283330,
+            "js_per_1000": 545.5,
+            "js_deviation": 15.3,
+            "pop_change_pct": 2.8,
+            "natural_increase": 2592.0,
+            "net_internal_migration": 5212.0,
+            "net_overseas_migration": 6577.0
+          },
+          {
+            "sa4_code": 509,
+            "sa4_name": "Western Australia - Wheat Belt",
+            "state": "WA",
+            "pop_2025": 149617.0,
+            "job_seekers": 75999,
+            "js_per_1000": 508.0,
+            "js_deviation": -22.2,
+            "pop_change_pct": 1.4,
+            "natural_increase": 156.0,
+            "net_internal_migration": 1206.0,
+            "net_overseas_migration": 679.0
+          },
+          {
+            "sa4_code": 510,
+            "sa4_name": "Western Australia - Outback (North)",
+            "state": "WA",
+            "pop_2025": 102732.0,
+            "job_seekers": 53700,
+            "js_per_1000": 522.7,
+            "js_deviation": -7.5,
+            "pop_change_pct": 1.3,
+            "natural_increase": 1117.0,
+            "net_internal_migration": -743.0,
+            "net_overseas_migration": 971.0
+          },
+          {
+            "sa4_code": 511,
+            "sa4_name": "Western Australia - Outback (South)",
+            "state": "WA",
+            "pop_2025": 128306.0,
+            "job_seekers": 67890,
+            "js_per_1000": 529.1,
+            "js_deviation": -1.1,
+            "pop_change_pct": 0.6,
+            "natural_increase": 545.0,
+            "net_internal_migration": -567.0,
+            "net_overseas_migration": 836.0
+          },
+          {
+            "sa4_code": 601,
+            "sa4_name": "Hobart",
+            "state": "TAS",
+            "pop_2025": 255250.0,
+            "job_seekers": 129472,
+            "js_per_1000": 507.2,
+            "js_deviation": -23.0,
+            "pop_change_pct": 0.2,
+            "natural_increase": 587.0,
+            "net_internal_migration": -1878.0,
+            "net_overseas_migration": 1833.0
+          },
+          {
+            "sa4_code": 602,
+            "sa4_name": "Launceston and North East",
+            "state": "TAS",
+            "pop_2025": 156393.0,
+            "job_seekers": 76270,
+            "js_per_1000": 487.7,
+            "js_deviation": -42.5,
+            "pop_change_pct": 0.2,
+            "natural_increase": -49.0,
+            "net_internal_migration": -338.0,
+            "net_overseas_migration": 745.0
+          },
+          {
+            "sa4_code": 603,
+            "sa4_name": "South East",
+            "state": "TAS",
+            "pop_2025": 44527.0,
+            "job_seekers": 20866,
+            "js_per_1000": 468.6,
+            "js_deviation": -61.6,
+            "pop_change_pct": 0.8,
+            "natural_increase": 19.0,
+            "net_internal_migration": 192.0,
+            "net_overseas_migration": 123.0
+          },
+          {
+            "sa4_code": 604,
+            "sa4_name": "West and North West",
+            "state": "TAS",
+            "pop_2025": 120091.0,
+            "job_seekers": 55388,
+            "js_per_1000": 461.2,
+            "js_deviation": -69.0,
+            "pop_change_pct": 0.2,
+            "natural_increase": -207.0,
+            "net_internal_migration": 147.0,
+            "net_overseas_migration": 322.0
+          },
+          {
+            "sa4_code": 701,
+            "sa4_name": "Darwin",
+            "state": "NT",
+            "pop_2025": 159284.0,
+            "job_seekers": 90551,
+            "js_per_1000": 568.5,
+            "js_deviation": 38.3,
+            "pop_change_pct": 1.7,
+            "natural_increase": 1302.0,
+            "net_internal_migration": -1430.0,
+            "net_overseas_migration": 2847.0
+          },
+          {
+            "sa4_code": 702,
+            "sa4_name": "Northern Territory - Outback",
+            "state": "NT",
+            "pop_2025": 105272.0,
+            "job_seekers": 55026,
+            "js_per_1000": 522.7,
+            "js_deviation": -7.5,
+            "pop_change_pct": 0.9,
+            "natural_increase": 722.0,
+            "net_internal_migration": -675.0,
+            "net_overseas_migration": 906.0
+          },
+          {
+            "sa4_code": 801,
+            "sa4_name": "Australian Capital Territory",
+            "state": "ACT",
+            "pop_2025": 484518.0,
+            "job_seekers": 273316,
+            "js_per_1000": 564.1,
+            "js_deviation": 33.9,
+            "pop_change_pct": 1.3,
+            "natural_increase": 2879.0,
+            "net_internal_migration": -1606.0,
+            "net_overseas_migration": 4815.0
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 85,
+        "opacity": 0.78
+      },
+      "encoding": {
+        "x": {
+          "field": "pop_2025",
+          "type": "quantitative",
+          "axis": {
+            "title": "Population (2025)",
+            "format": ",.0s"
+          }
+        },
+        "y": {
+          "field": "job_seekers",
+          "type": "quantitative",
+          "axis": {
+            "title": "Workers (March 2026)",
+            "format": ",.0s"
+          }
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "NSW",
+              "VIC",
+              "QLD",
+              "WA",
+              "SA",
+              "TAS",
+              "ACT",
+              "NT"
+            ],
+            "range": [
+              "#C0381A",
+              "#1A6850",
+              "#D08A0A",
+              "#1E4E90",
+              "#7A2E88",
+              "#188858",
+              "#C06810",
+              "#882E18"
+            ]
+          },
+          "legend": {
+            "title": "State",
+            "orient": "right",
+            "symbolSize": 80
+          }
+        },
+        "tooltip": [
+          {
+            "field": "sa4_name",
+            "title": "Region"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "pop_2025",
+            "title": "Population",
+            "format": ",.0f"
+          },
+          {
+            "field": "job_seekers",
+            "title": "Workers",
+            "format": ",.0f"
+          },
+          {
+            "field": "js_per_1000",
+            "title": "Workers per 1,000"
+          }
+        ]
+      }
+    }
+  ]
+}

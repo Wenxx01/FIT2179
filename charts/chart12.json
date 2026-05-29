@@ -1,0 +1,395 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "config": {
+    "background": "#FDFAF2",
+    "font": "DM Sans",
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#7A6A52",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52",
+      "gridColor": "#EAE0CE",
+      "gridOpacity": 0.9,
+      "domainColor": "#D6CCBA",
+      "tickColor": "#D6CCBA"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#3A2C1C",
+      "titleFont": "DM Sans",
+      "titleFontSize": 11,
+      "titleColor": "#7A6A52"
+    },
+    "view": {
+      "stroke": "transparent"
+    }
+  },
+  "width": "container",
+  "height": 380,
+  "data": {
+    "name": "DB"
+  },
+  "transform": [
+    {
+      "fold": [
+        "js_per1000_2019",
+        "js_per1000_2025"
+      ],
+      "as": [
+        "yr",
+        "val"
+      ]
+    },
+    {
+      "calculate": "datum.yr==='js_per1000_2019'?'2019':'2025'",
+      "as": "year"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2,
+        "opacity": 0.4
+      },
+      "encoding": {
+        "y": {
+          "field": "sa4_name",
+          "type": "nominal",
+          "sort": {
+            "field": "js_per1000_2025",
+            "order": "descending"
+          },
+          "axis": {
+            "title": null,
+            "labelFontSize": 10.5,
+            "labelLimit": 210
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative",
+          "axis": {
+            "title": "Workers per 1,000 Residents"
+          }
+        },
+        "detail": {
+          "field": "sa4_name"
+        },
+        "color": {
+          "value": "#C0381A"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 55,
+        "opacity": 0.65
+      },
+      "transform": [
+        {
+          "filter": "datum.year==='2019'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "sa4_name",
+          "type": "nominal",
+          "sort": {
+            "field": "js_per1000_2025",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#D6CCBA"
+        },
+        "tooltip": [
+          {
+            "field": "sa4_name",
+            "title": "Region"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "js_per1000_2019",
+            "title": "Workers per 1,000 (2019)"
+          },
+          {
+            "field": "js_per1000_2025",
+            "title": "Workers per 1,000 (2025)"
+          },
+          {
+            "field": "change",
+            "title": "Change"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 70
+      },
+      "transform": [
+        {
+          "filter": "datum.year==='2025'"
+        }
+      ],
+      "encoding": {
+        "y": {
+          "field": "sa4_name",
+          "type": "nominal",
+          "sort": {
+            "field": "js_per1000_2025",
+            "order": "descending"
+          }
+        },
+        "x": {
+          "field": "val",
+          "type": "quantitative"
+        },
+        "color": {
+          "value": "#C0381A"
+        },
+        "tooltip": [
+          {
+            "field": "sa4_name",
+            "title": "Region"
+          },
+          {
+            "field": "state",
+            "title": "State"
+          },
+          {
+            "field": "js_per1000_2019",
+            "title": "Workers per 1,000 (2019)"
+          },
+          {
+            "field": "js_per1000_2025",
+            "title": "Workers per 1,000 (2025)"
+          },
+          {
+            "field": "change",
+            "title": "Change"
+          }
+        ]
+      }
+    }
+  ],
+  "datasets": {
+    "DB": [
+      {
+        "sa4_code": 305,
+        "sa4_name": "Brisbane Inner City",
+        "state": "QLD",
+        "pop_2025": 335571.0,
+        "js_per1000_2019": 534.7,
+        "js_per1000_2025": 659.5,
+        "change": 124.8,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 503,
+        "sa4_name": "Perth - Inner",
+        "state": "WA",
+        "pop_2025": 212390.0,
+        "js_per1000_2019": 478.3,
+        "js_per1000_2025": 602.9,
+        "change": 124.6,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 311,
+        "sa4_name": "Logan - Beaudesert",
+        "state": "QLD",
+        "pop_2025": 420157.0,
+        "js_per1000_2019": 377.4,
+        "js_per1000_2025": 490.0,
+        "change": 112.6,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 504,
+        "sa4_name": "Perth - North East",
+        "state": "WA",
+        "pop_2025": 324644.0,
+        "js_per1000_2019": 435.6,
+        "js_per1000_2025": 544.1,
+        "change": 108.5,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 507,
+        "sa4_name": "Perth - South West",
+        "state": "WA",
+        "pop_2025": 519389.0,
+        "js_per1000_2019": 432.0,
+        "js_per1000_2025": 540.5,
+        "change": 108.5,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 506,
+        "sa4_name": "Perth - South East",
+        "state": "WA",
+        "pop_2025": 611748.0,
+        "js_per1000_2019": 443.7,
+        "js_per1000_2025": 547.3,
+        "change": 103.6,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 116,
+        "sa4_name": "Sydney - Blacktown",
+        "state": "NSW",
+        "pop_2025": 452374.0,
+        "js_per1000_2019": 433.2,
+        "js_per1000_2025": 532.1,
+        "change": 98.9,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 213,
+        "sa4_name": "Melbourne - West",
+        "state": "VIC",
+        "pop_2025": 980300.0,
+        "js_per1000_2019": 427.1,
+        "js_per1000_2025": 524.1,
+        "change": 97.0,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 505,
+        "sa4_name": "Perth - North West",
+        "state": "WA",
+        "pop_2025": 657092.0,
+        "js_per1000_2019": 463.8,
+        "js_per1000_2025": 557.2,
+        "change": 93.4,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 310,
+        "sa4_name": "Ipswich",
+        "state": "QLD",
+        "pop_2025": 419370.0,
+        "js_per1000_2019": 398.2,
+        "js_per1000_2025": 491.2,
+        "change": 93.0,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 309,
+        "sa4_name": "Gold Coast",
+        "state": "QLD",
+        "pop_2025": 708085.0,
+        "js_per1000_2019": 465.3,
+        "js_per1000_2025": 554.0,
+        "change": 88.7,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 127,
+        "sa4_name": "Sydney - South West",
+        "state": "NSW",
+        "pop_2025": 527701.0,
+        "js_per1000_2019": 380.2,
+        "js_per1000_2025": 467.6,
+        "change": 87.4,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 316,
+        "sa4_name": "Sunshine Coast",
+        "state": "QLD",
+        "pop_2025": 441508.0,
+        "js_per1000_2019": 418.2,
+        "js_per1000_2025": 505.0,
+        "change": 86.8,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 314,
+        "sa4_name": "Moreton Bay - South",
+        "state": "QLD",
+        "pop_2025": 238959.0,
+        "js_per1000_2019": 469.0,
+        "js_per1000_2025": 555.7,
+        "change": 86.7,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 401,
+        "sa4_name": "Adelaide - Central and Hills",
+        "state": "SA",
+        "pop_2025": 338950.0,
+        "js_per1000_2019": 472.3,
+        "js_per1000_2025": 558.8,
+        "change": 86.5,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 203,
+        "sa4_name": "Geelong",
+        "state": "VIC",
+        "pop_2025": 355990.0,
+        "js_per1000_2019": 433.1,
+        "js_per1000_2025": 516.2,
+        "change": 83.1,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 303,
+        "sa4_name": "Brisbane - South",
+        "state": "QLD",
+        "pop_2025": 412436.0,
+        "js_per1000_2019": 476.9,
+        "js_per1000_2025": 559.3,
+        "change": 82.4,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 206,
+        "sa4_name": "Melbourne - Inner",
+        "state": "VIC",
+        "pop_2025": 713493.0,
+        "js_per1000_2019": 574.1,
+        "js_per1000_2025": 656.4,
+        "change": 82.3,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 404,
+        "sa4_name": "Adelaide - West",
+        "state": "SA",
+        "pop_2025": 263116.0,
+        "js_per1000_2019": 462.2,
+        "js_per1000_2025": 544.1,
+        "change": 81.9,
+        "direction": "Worsened"
+      },
+      {
+        "sa4_code": 313,
+        "sa4_name": "Moreton Bay - North",
+        "state": "QLD",
+        "pop_2025": 300041.0,
+        "js_per1000_2019": 364.6,
+        "js_per1000_2025": 445.9,
+        "change": 81.3,
+        "direction": "Worsened"
+      }
+    ]
+  }
+}

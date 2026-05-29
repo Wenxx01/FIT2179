@@ -1,0 +1,355 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#FDFAF2",
+  "data": {
+    "name": "SA5"
+  },
+  "facet": {
+    "field": "state",
+    "type": "nominal",
+    "columns": 5,
+    "header": {
+      "title": null,
+      "labelFont": "DM Sans",
+      "labelFontSize": 13,
+      "labelFontWeight": "600",
+      "labelColor": "#17100A"
+    }
+  },
+  "spec": {
+    "width": 160,
+    "height": 100,
+    "mark": {
+      "type": "area",
+      "color": "#1A6850",
+      "opacity": 0.15,
+      "line": {
+        "color": "#1A6850",
+        "strokeWidth": 1.8
+      }
+    },
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "axis": {
+          "title": null,
+          "labelAngle": -45,
+          "labelFontSize": 8.5,
+          "values": [
+            2015,
+            2018,
+            2021,
+            2025
+          ]
+        }
+      },
+      "y": {
+        "field": "job_seekers",
+        "type": "quantitative",
+        "axis": {
+          "title": null,
+          "format": ",.0s",
+          "labelFontSize": 8.5
+        },
+        "scale": {
+          "zero": true
+        }
+      },
+      "tooltip": [
+        {
+          "field": "state",
+          "title": "State"
+        },
+        {
+          "field": "year",
+          "title": "Year"
+        },
+        {
+          "field": "job_seekers",
+          "title": "Workers",
+          "format": ",.0f"
+        }
+      ]
+    }
+  },
+  "datasets": {
+    "SA5": [
+      {
+        "year": 2015,
+        "state": "NSW",
+        "job_seekers": 15204912
+      },
+      {
+        "year": 2015,
+        "state": "QLD",
+        "job_seekers": 9478110
+      },
+      {
+        "year": 2015,
+        "state": "TAS",
+        "job_seekers": 961141
+      },
+      {
+        "year": 2015,
+        "state": "VIC",
+        "job_seekers": 12263671
+      },
+      {
+        "year": 2015,
+        "state": "WA",
+        "job_seekers": 5251954
+      },
+      {
+        "year": 2016,
+        "state": "NSW",
+        "job_seekers": 45782597
+      },
+      {
+        "year": 2016,
+        "state": "QLD",
+        "job_seekers": 28522812
+      },
+      {
+        "year": 2016,
+        "state": "TAS",
+        "job_seekers": 2902786
+      },
+      {
+        "year": 2016,
+        "state": "VIC",
+        "job_seekers": 37299083
+      },
+      {
+        "year": 2016,
+        "state": "WA",
+        "job_seekers": 15727325
+      },
+      {
+        "year": 2017,
+        "state": "NSW",
+        "job_seekers": 46464915
+      },
+      {
+        "year": 2017,
+        "state": "QLD",
+        "job_seekers": 29107535
+      },
+      {
+        "year": 2017,
+        "state": "TAS",
+        "job_seekers": 2982501
+      },
+      {
+        "year": 2017,
+        "state": "VIC",
+        "job_seekers": 38268912
+      },
+      {
+        "year": 2017,
+        "state": "WA",
+        "job_seekers": 15861744
+      },
+      {
+        "year": 2018,
+        "state": "NSW",
+        "job_seekers": 47688789
+      },
+      {
+        "year": 2018,
+        "state": "QLD",
+        "job_seekers": 29834391
+      },
+      {
+        "year": 2018,
+        "state": "TAS",
+        "job_seekers": 3058533
+      },
+      {
+        "year": 2018,
+        "state": "VIC",
+        "job_seekers": 39284221
+      },
+      {
+        "year": 2018,
+        "state": "WA",
+        "job_seekers": 16164945
+      },
+      {
+        "year": 2019,
+        "state": "NSW",
+        "job_seekers": 48415856
+      },
+      {
+        "year": 2019,
+        "state": "QLD",
+        "job_seekers": 30215642
+      },
+      {
+        "year": 2019,
+        "state": "TAS",
+        "job_seekers": 3110966
+      },
+      {
+        "year": 2019,
+        "state": "VIC",
+        "job_seekers": 39983395
+      },
+      {
+        "year": 2019,
+        "state": "WA",
+        "job_seekers": 16416341
+      },
+      {
+        "year": 2020,
+        "state": "NSW",
+        "job_seekers": 48213198
+      },
+      {
+        "year": 2020,
+        "state": "QLD",
+        "job_seekers": 30515312
+      },
+      {
+        "year": 2020,
+        "state": "TAS",
+        "job_seekers": 3181007
+      },
+      {
+        "year": 2020,
+        "state": "VIC",
+        "job_seekers": 39808556
+      },
+      {
+        "year": 2020,
+        "state": "WA",
+        "job_seekers": 16642218
+      },
+      {
+        "year": 2021,
+        "state": "NSW",
+        "job_seekers": 48724248
+      },
+      {
+        "year": 2021,
+        "state": "QLD",
+        "job_seekers": 31664448
+      },
+      {
+        "year": 2021,
+        "state": "TAS",
+        "job_seekers": 3295929
+      },
+      {
+        "year": 2021,
+        "state": "VIC",
+        "job_seekers": 40360247
+      },
+      {
+        "year": 2021,
+        "state": "WA",
+        "job_seekers": 17291851
+      },
+      {
+        "year": 2022,
+        "state": "NSW",
+        "job_seekers": 50524142
+      },
+      {
+        "year": 2022,
+        "state": "QLD",
+        "job_seekers": 33020540
+      },
+      {
+        "year": 2022,
+        "state": "TAS",
+        "job_seekers": 3394023
+      },
+      {
+        "year": 2022,
+        "state": "VIC",
+        "job_seekers": 41811539
+      },
+      {
+        "year": 2022,
+        "state": "WA",
+        "job_seekers": 18078600
+      },
+      {
+        "year": 2023,
+        "state": "NSW",
+        "job_seekers": 52300451
+      },
+      {
+        "year": 2023,
+        "state": "QLD",
+        "job_seekers": 34112127
+      },
+      {
+        "year": 2023,
+        "state": "TAS",
+        "job_seekers": 3424684
+      },
+      {
+        "year": 2023,
+        "state": "VIC",
+        "job_seekers": 43342120
+      },
+      {
+        "year": 2023,
+        "state": "WA",
+        "job_seekers": 18758642
+      },
+      {
+        "year": 2024,
+        "state": "NSW",
+        "job_seekers": 53263920
+      },
+      {
+        "year": 2024,
+        "state": "QLD",
+        "job_seekers": 35146397
+      },
+      {
+        "year": 2024,
+        "state": "TAS",
+        "job_seekers": 3402003
+      },
+      {
+        "year": 2024,
+        "state": "VIC",
+        "job_seekers": 44549088
+      },
+      {
+        "year": 2024,
+        "state": "WA",
+        "job_seekers": 19391514
+      },
+      {
+        "year": 2025,
+        "state": "NSW",
+        "job_seekers": 53740986
+      },
+      {
+        "year": 2025,
+        "state": "QLD",
+        "job_seekers": 35841446
+      },
+      {
+        "year": 2025,
+        "state": "TAS",
+        "job_seekers": 3392518
+      },
+      {
+        "year": 2025,
+        "state": "VIC",
+        "job_seekers": 45304702
+      },
+      {
+        "year": 2025,
+        "state": "WA",
+        "job_seekers": 19793887
+      }
+    ]
+  }
+}
